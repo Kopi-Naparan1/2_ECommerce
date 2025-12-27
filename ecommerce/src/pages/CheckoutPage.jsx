@@ -5,6 +5,7 @@ export default function CheckoutPage() {
   return (
     <>
       {" "}
+      <title>Check out</title>
       <div className="checkout-header">
         <div className="header-content">
           <div className="checkout-header-left-section">
