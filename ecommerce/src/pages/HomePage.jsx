@@ -6,7 +6,7 @@ export default function HomePage() {
     <>
       <div class="header">
         <div class="left-section">
-          <a href="index.html" class="header-link">
+          <a href="/" class="header-link">
             <img class="logo" src="images/logo-white.png" />
             <img class="mobile-logo" src="images/mobile-logo-white.png" />
           </a>
@@ -21,7 +21,7 @@ export default function HomePage() {
         </div>
 
         <div class="right-section">
-          <a class="orders-link header-link" href="orders.html">
+          <a class="orders-link header-link" href="/orders">
             <span class="orders-text">Orders</span>
           </a>
 
