@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "../components/Header";
 
-export default function HomePage() {
+export default function HomePage({ cart }) {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     axios
@@ -15,12 +14,6 @@ export default function HomePage() {
         console.log(res.data);
       })
       .catch((err) => console.error(err));
-
-    axios
-      .get("http://localhost:3000/api/cart-items")
-      .then((res) => setCart(res.data))
-      .catch((err) => console.error(err));
-    console.log(cart);
   });
 
   useEffect(() => {
