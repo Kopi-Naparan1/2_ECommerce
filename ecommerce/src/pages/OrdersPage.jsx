@@ -7,79 +7,83 @@ export default function OrdersPage() {
     <>
       <title>Orders</title>
       <Header />
-      <div class="orders-page">
-        <div class="page-title">Your Orders</div>
+      <div className="orders-page">
+        <div className="page-title">Your Orders</div>
 
-        <div class="orders-grid">
-          <div class="order-container">
-            <div class="order-header">
-              <div class="order-header-left-section">
-                <div class="order-date">
-                  <div class="order-header-label">Order Placed:</div>
+        <div className="orders-grid">
+          <div className="order-container">
+            <div className="order-header">
+              <div className="order-header-left-section">
+                <div className="order-date">
+                  <div className="order-header-label">Order Placed:</div>
                   <div>August 12</div>
                 </div>
-                <div class="order-total">
-                  <div class="order-header-label">Total:</div>
+                <div className="order-total">
+                  <div className="order-header-label">Total:</div>
                   <div>$35.06</div>
                 </div>
               </div>
 
-              <div class="order-header-right-section">
-                <div class="order-header-label">Order ID:</div>
+              <div className="order-header-right-section">
+                <div className="order-header-label">Order ID:</div>
                 <div>27cba69d-4c3d-4098-b42d-ac7fa62b7664</div>
               </div>
             </div>
 
-            <div class="order-details-grid">
-              <div class="product-image-container">
+            <div className="order-details-grid">
+              <div className="product-image-container">
                 <img src="images/products/athletic-cotton-socks-6-pairs.jpg" />
               </div>
 
-              <div class="product-details">
-                <div class="product-name">
+              <div className="product-details">
+                <div className="product-name">
                   Black and Gray Athletic Cotton Socks - 6 Pairs
                 </div>
-                <div class="product-delivery-date">Arriving on: August 15</div>
-                <div class="product-quantity">Quantity: 1</div>
-                <button class="buy-again-button button-primary">
+                <div className="product-delivery-date">
+                  Arriving on: August 15
+                </div>
+                <div className="product-quantity">Quantity: 1</div>
+                <button className="buy-again-button button-primary">
                   <img
-                    class="buy-again-icon"
+                    className="buy-again-icon"
                     src="images/icons/buy-again.png"
                   />
-                  <span class="buy-again-message">Add to Cart</span>
+                  <span className="buy-again-message">Add to Cart</span>
                 </button>
               </div>
 
-              <div class="product-actions">
+              <div className="product-actions">
                 <Link to="/tracking">
-                  <button class="track-package-button button-secondary">
+                  <button className="track-package-button button-secondary">
                     Track package
                   </button>
                 </Link>
               </div>
 
-              <div class="product-image-container">
+              <div className="product-image-container">
                 <img src="images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg" />
               </div>
 
-              <div class="product-details">
-                <div class="product-name">
+              <div className="product-details">
+                <div className="product-name">
                   Adults Plain Cotton T-Shirt - 2 Pack
                 </div>
-                <div class="product-delivery-date">Arriving on: August 19</div>
-                <div class="product-quantity">Quantity: 2</div>
-                <button class="buy-again-button button-primary">
+                <div className="product-delivery-date">
+                  Arriving on: August 19
+                </div>
+                <div className="product-quantity">Quantity: 2</div>
+                <button className="buy-again-button button-primary">
                   <img
-                    class="buy-again-icon"
+                    className="buy-again-icon"
                     src="images/icons/buy-again.png"
                   />
-                  <span class="buy-again-message">Add to Cart</span>
+                  <span className="buy-again-message">Add to Cart</span>
                 </button>
               </div>
 
-              <div class="product-actions">
+              <div className="product-actions">
                 <Link to="/tracking">
-                  <button class="track-package-button button-secondary">
+                  <button className="track-package-button button-secondary">
                     Track package
                   </button>
                 </Link>
@@ -87,46 +91,48 @@ export default function OrdersPage() {
             </div>
           </div>
 
-          <div class="order-container">
-            <div class="order-header">
-              <div class="order-header-left-section">
-                <div class="order-date">
-                  <div class="order-header-label">Order Placed:</div>
+          <div className="order-container">
+            <div className="order-header">
+              <div className="order-header-left-section">
+                <div className="order-date">
+                  <div className="order-header-label">Order Placed:</div>
                   <div>June 10</div>
                 </div>
-                <div class="order-total">
-                  <div class="order-header-label">Total:</div>
+                <div className="order-total">
+                  <div className="order-header-label">Total:</div>
                   <div>$41.90</div>
                 </div>
               </div>
 
-              <div class="order-header-right-section">
-                <div class="order-header-label">Order ID:</div>
+              <div className="order-header-right-section">
+                <div className="order-header-label">Order ID:</div>
                 <div>b6b6c212-d30e-4d4a-805d-90b52ce6b37d</div>
               </div>
             </div>
 
-            <div class="order-details-grid">
-              <div class="product-image-container">
+            <div className="order-details-grid">
+              <div className="product-image-container">
                 <img src="images/products/intermediate-composite-basketball.jpg" />
               </div>
 
-              <div class="product-details">
-                <div class="product-name">Intermediate Size Basketball</div>
-                <div class="product-delivery-date">Arriving on: June 17</div>
-                <div class="product-quantity">Quantity: 2</div>
-                <button class="buy-again-button button-primary">
+              <div className="product-details">
+                <div className="product-name">Intermediate Size Basketball</div>
+                <div className="product-delivery-date">
+                  Arriving on: June 17
+                </div>
+                <div className="product-quantity">Quantity: 2</div>
+                <button className="buy-again-button button-primary">
                   <img
-                    class="buy-again-icon"
+                    className="buy-again-icon"
                     src="images/icons/buy-again.png"
                   />
-                  <span class="buy-again-message">Add to Cart</span>
+                  <span className="buy-again-message">Add to Cart</span>
                 </button>
               </div>
 
-              <div class="product-actions">
+              <div className="product-actions">
                 <Link to="/tracking">
-                  <button class="track-package-button button-secondary">
+                  <button className="track-package-button button-secondary">
                     Track package
                   </button>
                 </Link>

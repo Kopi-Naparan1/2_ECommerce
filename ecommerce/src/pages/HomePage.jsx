@@ -5,6 +5,7 @@ import Header from "../components/Header";
 
 export default function HomePage() {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     axios
@@ -16,7 +17,9 @@ export default function HomePage() {
         console.error("Error fetching products:", error);
       });
 
-    axios.get("http://localhost:3000/api/cart-items");
+    axios.get("http://localhost:3000/api/cart-items").then((response) => {
+      setCart(response.data);
+    });
   }, []);
 
   useEffect(() => {
@@ -25,7 +28,7 @@ export default function HomePage() {
 
   return (
     <>
-      <Header />
+      <Header cart={cart} />
 
       <div className="home-page">
         <div className="products-grid">
