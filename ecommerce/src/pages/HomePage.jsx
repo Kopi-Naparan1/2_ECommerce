@@ -9,18 +9,19 @@ export default function HomePage() {
 
   useEffect(() => {
     axios
-      .get("/api/products")
-      .then((response) => {
-        setProducts(response.data);
+      .get("http://localhost:3000/api/products")
+      .then((res) => {
+        setProducts(res.data);
+        console.log(res.data);
       })
-      .catch((error) => {
-        console.error("Error fetching products:", error);
-      });
+      .catch((err) => console.error(err));
 
-    axios.get("/api/cart-items").then((response) => {
-      setCart(response.data);
-    });
-  }, []);
+    axios
+      .get("http://localhost:3000/api/cart-items")
+      .then((res) => setCart(res.data))
+      .catch((err) => console.error(err));
+    console.log(cart);
+  });
 
   useEffect(() => {
     document.title = "Home";
@@ -36,7 +37,7 @@ export default function HomePage() {
             return (
               <div key={product.id} className="product-container">
                 <div className="product-image-container">
-                  <img className="product-image" src={product.image} />
+                  <img className="product-image" src={`/${product.image}`} />
                 </div>
 
                 <div className="product-name limit-text-to-2-lines">
@@ -47,7 +48,7 @@ export default function HomePage() {
                   <div className="product-rating-container">
                     <img
                       className="product-rating-stars"
-                      src={`images/ratings/rating-${
+                      src={`/images/ratings/rating-${
                         product.rating.stars * 10
                       }.png`}
                       alt="rating"
@@ -80,7 +81,7 @@ export default function HomePage() {
                 <div className="product-spacer"></div>
 
                 <div className="added-to-cart">
-                  <img src="images/icons/checkmark.png" />
+                  <img src="/images/icons/checkmark.png" />
                   Added
                 </div>
 
