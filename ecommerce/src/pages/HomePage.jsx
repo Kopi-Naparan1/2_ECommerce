@@ -9,7 +9,7 @@ export default function HomePage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/products")
+      .get("/api/products")
       .then((response) => {
         setProducts(response.data);
       })
@@ -17,7 +17,7 @@ export default function HomePage() {
         console.error("Error fetching products:", error);
       });
 
-    axios.get("http://localhost:3000/api/cart-items").then((response) => {
+    axios.get("/api/cart-items").then((response) => {
       setCart(response.data);
     });
   }, []);
