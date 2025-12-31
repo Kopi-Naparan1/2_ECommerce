@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/cart-items")
+      .get("http://localhost:3000/api/cart-items?expand=product")
       .then((res) => setCart(res.data))
       .catch((err) => console.error(err));
     console.log(cart);
