@@ -7,28 +7,41 @@ import { useState, useEffect } from "react";
 import OrderSummary from "./OrderSummary.jsx";
 import PaymentSummary from "./PaymentSummary.jsx";
 
-export default function CheckoutPage({ cart }) {
+export default function CheckoutPage({ cart, loadCart }) {
   const [deliveryOption, setDeliveryOption] = useState([]);
   const [paymentSummary, setPaymentSummmary] = useState(null);
 
+  // Fetch delivery options once
   useEffect(() => {
-    const fetchCheckoutData = async () => {
+    const fetchDeliveryOptions = async () => {
       try {
-        let response = await axios.get(
+        const response = await axios.get(
           "http://localhost:3000/api/delivery-options?expand=estimatedDeliveryTime"
         );
-
         setDeliveryOption(response.data);
-
-        response = await axios.get("http://localhost:3000/api/payment-summary");
-
-        setPaymentSummmary(response.data);
       } catch (error) {
-        console.error("Failed to fetch cart items:", error);
+        console.error("Failed to fetch delivery options:", error);
       }
     };
-    fetchCheckoutData();
+    fetchDeliveryOptions();
   }, []);
+
+  // Update payment summary when cart changes
+  useEffect(() => {
+    const fetchPaymentSummary = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:3000/api/payment-summary"
+        );
+        setPaymentSummmary(response.data);
+      } catch (error) {
+        console.error("Failed to fetch payment summary:", error);
+      }
+    };
+    if (cart.length > 0) {
+      fetchPaymentSummary();
+    }
+  }, [cart]);
 
   return (
     <>
@@ -62,6 +75,7 @@ export default function CheckoutPage({ cart }) {
           <OrderSummary
             cart={cart}
             deliveryOption={deliveryOption}
+            loadCart={loadCart}
           ></OrderSummary>
           {paymentSummary && (
             <>
