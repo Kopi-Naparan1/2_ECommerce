@@ -4,6 +4,7 @@ import Header from "../../components/Header";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+import OrderHeader from "./OrderHeader";
 import OrderDetailsGrid from "./OrderDetailsGrid";
 
 export default function OrdersPage({ cart }) {

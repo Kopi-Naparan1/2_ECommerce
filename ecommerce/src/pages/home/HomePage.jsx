@@ -8,14 +8,19 @@ export default function HomePage({ cart }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/api/products")
-      .then((res) => {
-        setProducts(res.data);
-        console.log(res.data);
-      })
-      .catch((err) => console.error(err));
-  });
+    // Define an async function inside useEffect
+    const fetchHomeData = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/api/products");
+        setProducts(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error("Failed to fetch products:", error);
+      }
+    };
+
+    fetchHomeData(); // Call the async function
+  }, []); // Empty dependency array, runs once on mount
 
   useEffect(() => {
     document.title = "Home";

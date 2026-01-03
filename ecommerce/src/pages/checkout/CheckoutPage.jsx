@@ -12,17 +12,22 @@ export default function CheckoutPage({ cart }) {
   const [paymentSummary, setPaymentSummmary] = useState(null);
 
   useEffect(() => {
-    axios
-      .get(
-        "http://localhost:3000/api/delivery-options?expand=estimatedDeliveryTime"
-      )
-      .then((res) => {
-        setDeliveryOption(res.data);
-      });
+    const fetchCheckoutData = async () => {
+      try {
+        let response = await axios.get(
+          "http://localhost:3000/api/delivery-options?expand=estimatedDeliveryTime"
+        );
 
-    axios.get("http://localhost:3000/api/payment-summary").then((response) => {
-      setPaymentSummmary(response.data);
-    });
+        setDeliveryOption(response.data);
+
+        response = await axios.get("http://localhost:3000/api/payment-summary");
+
+        setPaymentSummmary(response.data);
+      } catch (error) {
+        console.error("Failed to fetch cart items:", error);
+      }
+    };
+    fetchCheckoutData();
   }, []);
 
   return (

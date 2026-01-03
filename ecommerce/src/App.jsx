@@ -3,17 +3,24 @@ import { useEffect, useState } from "react";
 import HomePage from "./pages/home/HomePage.jsx";
 import CheckoutPage from "./pages/checkout/CheckoutPage.jsx";
 import { Route, Routes } from "react-router-dom";
-import OrdersPage from "./pages/OrdersPage.jsx";
-import TrackingPage from "./pages/TrackingPage.jsx";
+import OrdersPage from "./pages/orders/OrdersPage.jsx";
+import TrackingPage from "./pages/tracking/TrackingPage.jsx";
 
 function App() {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/api/cart-items?expand=product")
-      .then((res) => setCart(res.data))
-      .catch((err) => console.error(err));
+    const fetchAppData = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:3000/api/cart-items?expand=product"
+        );
+        setCart(response.data);
+      } catch (error) {
+        console.error("Failed to fetch cart items:", error);
+      }
+    };
+    fetchAppData();
   }, []);
 
   return (
