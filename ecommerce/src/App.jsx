@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import HomePage from "./pages/HomePage";
 import CheckoutPage from "./pages/CheckoutPage";
 import { Route, Routes } from "react-router-dom";
-import OrdersPage from "./pages/OrdersPage";
+import OrdersPage from "./pages/OrdersPage.jsx";
 import TrackingPage from "./pages/TrackingPage.jsx";
 
 function App() {
@@ -14,16 +14,15 @@ function App() {
       .get("http://localhost:3000/api/cart-items?expand=product")
       .then((res) => setCart(res.data))
       .catch((err) => console.error(err));
-    console.log(cart);
-  });
+  }, []);
 
   return (
     <>
       <Routes>
         <Route index element={<HomePage cart={cart} />} />
         <Route path="checkout" element={<CheckoutPage cart={cart} />} />
-        <Route path="orders" element={<OrdersPage />} />
-        <Route path="tracking" element={<TrackingPage />} />
+        <Route path="orders" element={<OrdersPage cart={cart} />} />
+        <Route path="tracking" element={<TrackingPage cart={cart} />} />
       </Routes>
     </>
   );

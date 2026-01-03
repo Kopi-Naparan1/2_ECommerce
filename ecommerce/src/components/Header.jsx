@@ -1,11 +1,10 @@
-import CheckoutPage from "../pages/CheckoutPage";
 import "./header.css";
 import { Link } from "react-router-dom";
 
 export default function Header({ cart }) {
   let totalQuantity = 0;
 
-  cart.forEach((cartItem) => {
+  cart.map((cartItem) => {
     totalQuantity += cartItem.quantity;
   });
 
