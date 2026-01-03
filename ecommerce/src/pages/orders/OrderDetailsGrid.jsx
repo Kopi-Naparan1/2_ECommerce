@@ -22,7 +22,9 @@ export default function OrderDetailsGrid({ order }) {
                   Arriving on:{" "}
                   {dayjs(product.estimatedDeliveryTimeMs).format("MMMM D")}
                 </div>
-                <div className="product-quantity">Quantity: 1</div>
+                <div className="product-quantity">
+                  Quantity: {orderProduct.quantity}
+                </div>
                 <button className="buy-again-button button-primary">
                   <img
                     className="buy-again-icon"
