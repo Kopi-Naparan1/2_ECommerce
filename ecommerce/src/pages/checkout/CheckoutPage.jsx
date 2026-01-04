@@ -80,7 +80,10 @@ export default function CheckoutPage({ cart, loadCart }) {
           {paymentSummary && (
             <>
               {" "}
-              <PaymentSummary paymentSummary={paymentSummary}></PaymentSummary>
+              <PaymentSummary
+                paymentSummary={paymentSummary}
+                loadCart={loadCart}
+              ></PaymentSummary>
             </>
           )}
         </div>

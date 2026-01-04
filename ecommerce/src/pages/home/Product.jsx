@@ -3,24 +3,21 @@ import axios from "axios";
 import { useState } from "react";
 
 export default function Product({ product, loadCart }) {
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState(1);
 
-  function addToCart() {
-    async () => {
-      await axios.post("http://localhost:3000/api/cart-items", {
-        productId: product.id,
-        quantity,
-      });
-      await loadCart();
-    };
+  async function addToCart() {
+    await axios.post("http://localhost:3000/api/cart-items", {
+      productId: product.id,
+      quantity,
+    });
+    await loadCart();
   }
 
-  function selectQuantity() {
-    (event) => {
-      const quantitySelected = Number(event.target.value);
-      setQuantity(quantitySelected);
-    };
+  function selectQuantity(event) {
+    const quantitySelected = Number(event.target.value);
+    setQuantity(quantitySelected);
   }
+
   return (
     <>
       {" "}
