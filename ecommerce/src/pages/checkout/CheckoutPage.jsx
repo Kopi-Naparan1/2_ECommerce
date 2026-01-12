@@ -58,7 +58,7 @@ export default function CheckoutPage({ cart, loadCart }) {
           <div className="checkout-header-middle-section">
             Checkout (
             <Link className="return-to-home-link" to="/">
-              3 items
+              {cart.length}
             </Link>
             )
           </div>
