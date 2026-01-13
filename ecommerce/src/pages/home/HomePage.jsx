@@ -18,7 +18,6 @@ export default function HomePage({ cart, loadCart }) {
         console.error("Failed to fetch products:", error);
       }
     };
-
     fetchHomeData(); // Call the async function
   }, []); // Empty dependency array, runs once on mount
 

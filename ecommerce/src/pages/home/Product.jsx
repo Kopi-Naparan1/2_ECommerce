@@ -23,7 +23,11 @@ export default function Product({ product, loadCart }) {
       {" "}
       <div className="product-container">
         <div className="product-image-container">
-          <img className="product-image" src={`/${product.image}`} />
+          <img
+            className="product-image"
+            data-testid="product-image"
+            src={`/${product.image}`}
+          />
         </div>
 
         <div className="product-name limit-text-to-2-lines">{product.name}</div>
@@ -34,6 +38,7 @@ export default function Product({ product, loadCart }) {
               className="product-rating-stars"
               src={`/images/ratings/rating-${product.rating.stars * 10}.png`}
               alt="rating"
+              data-testid="product-rating-stars-image"
             />
             <div className="product-rating-count link-primary">
               {product.rating.count}
